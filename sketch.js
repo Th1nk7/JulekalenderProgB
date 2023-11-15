@@ -1,21 +1,35 @@
 let grader = 0;
 let rotationStarted = false;
+let isOpenArr = new Array();
 
 function preload(){
-  font = loadFont('comicsans.ttf')
+  font = loadFont('comicsans.ttf');
+}
+
+// Alt bag lågen skal laves efter
+// x, y, farve, tal
+function laageSetup(x, y, color, number){
+  let rotationDegrees = 0;
+  let rotationStarted = false;
+  fill(color);
 }
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   textSize(70);
   angleMode(DEGREES);
   textFont(font)
+
+  for(let i = 1; i < 25; i++){
+    let pushVar = i+false;
+    isOpenArr.push(pushVar);
+  }
 }
 
 function draw() {
   background(220);
   fill("red")
-  rect(-50,-50,100)
+  rect(-50,-50,75)
   fill("white")
   translate(-50,-50,0)
   if(grader < -160){
@@ -32,9 +46,13 @@ function draw() {
   window.open("https://www.youtube.com/shorts/SXHMnicI6Pg")
   
   }
-  rect(0, 0, 100);
+  rect(0, 0, 75);
   fill("black")
   translate(0,0,1)
-  text("1",27,90)
+  text("1",20,69)
   console.log(rotationStarted + "    " + grader)
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
 }
