@@ -4,10 +4,17 @@ let isOpenPermArr = new Array();
 let degreesArr = new Array();
 let rotationStartedArr = new Array();
 let img1, img2, img3, img4;
+let currentPage = '#canvas1'
 
 function preload(){
   font = loadFont('comicsans.ttf');
   img1 = loadImage("jul1.png"); img2 = loadImage("jul2.png"); img3 = loadImage("jul3.png"); img4 = loadImage("jul4.png")
+}
+
+function switchPage(whichPage){
+  select(currentPage).removeClass('show')
+  select(whichPage).addClass('show')
+  currentPage = whichPage
 }
 
 // Alt bag lågen skal laves efter
@@ -51,12 +58,15 @@ function laageSetup(x, y, laageImage, number, textPos, textColor){
 
 function isOpenChecker(number,link){
   if(isOpenArr[number-1]==true){
-    window.open(link)
+    switchPage(link)
+    console.log("i exist")
   }
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  let myCanvas1 = createCanvas(windowWidth, windowHeight, WEBGL);
+  myCanvas1.class("page show");
+  myCanvas1.id("canvas1")
   textSize(70);
   angleMode(DEGREES);
   textFont(font)
@@ -76,10 +86,10 @@ function draw() {
   laageSetup(400,250,img2,2,27,"white")
   laageSetup(258,-312,img3,3,27,"white")
   laageSetup(612,-111,img4,4,25,"white")
-  isOpenChecker(1,"")
-  isOpenChecker(2,"")
-  isOpenChecker(3,"")
-  isOpenChecker(4,"")
+  isOpenChecker(1,"canvas2")
+  //isOpenChecker(2,"#page3")
+  //isOpenChecker(3,"#page4")
+  //isOpenChecker(4,"#page5")
 }
 
 function windowResized(){
