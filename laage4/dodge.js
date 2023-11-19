@@ -52,7 +52,7 @@ function draw() {
 }
   fill('red')
   //makes so you have to press the mouse to begin
-  if(mouseIsPressed && !start){
+  if(mouseIsPressed && !start && parent.document.getElementById(window.name).classList == "page show"){
     start = true
   }
   if(start){
