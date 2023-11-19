@@ -145,8 +145,8 @@ size = 0
 gameOver = false
 level = 1
 }
-//skal lave level counter
-//skal tilføre sprits
+
+
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);

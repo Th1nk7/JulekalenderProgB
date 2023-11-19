@@ -119,7 +119,8 @@ function setup() {
     rotationStartedArr.push(false)
   }
   
-  // Dette er alt sammen til at placere det når siden bliver kørt. safetyCount er til for at man ikke bliver bollet når man har en lille fane.
+  // Dette er alt sammen til at placere det når siden bliver kørt. safetyCount er til for at man ikke mister sin computer når man har en lille fane
+  // Jeg nægter at skrive comments til det under, det kan godt forstås, det tager bare lidt tid
   while(laageSpawnCount<25&&safetyCount<10000){
     let xRandom = Math.floor(random(size-windowWidth/2,windowWidth/2-size))
     let yRandom = Math.floor(random(size-windowHeight/2,windowHeight/2-size))
@@ -200,6 +201,9 @@ function draw() {
 }
 
 function windowResized(){
+
+  // Dette er alt sammen til at placere det når siden bliver kørt. safetyCount er til for at man ikke mister sin computer når man har en lille fane
+  // Jeg nægter at skrive comments til det under, det kan godt forstås, det tager bare lidt tid
   laageSpawnCount = 0;
   safetyCount = 0;
   laageXArr = new Array();
@@ -237,5 +241,7 @@ function windowResized(){
       laageSpawnCount++;
     }
   }
+  
   resizeCanvas(windowWidth, windowHeight);
+
 }
