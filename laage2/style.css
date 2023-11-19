@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: rgb(22, 22, 22);
+  overflow:hidden;
+}
+canvas {
+  display: block;
+}
+
+
+#img {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
