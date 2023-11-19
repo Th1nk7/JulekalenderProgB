@@ -107,7 +107,7 @@ if(gameOver == true){
 function forhendring(){
   //here we chek if the Y posision of the obstacle is 0 and if it is, it shall make it
   if(posY == 0){
-  posX = random(windowWidth/2-300,windowWidth/2+200);
+  posX = random(windowWidth/2-300,windowWidth/2+300);
   Math.floor(posX);
   size = random(50,100); 
   }
@@ -147,3 +147,7 @@ level = 1
 }
 //skal lave level counter
 //skal tilføre sprits
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
