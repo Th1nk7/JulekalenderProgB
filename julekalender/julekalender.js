@@ -13,7 +13,12 @@ let safetyCount = 0;
 // Preloader det der skal preloades
 function preload(){
   font = loadFont('comicsans.ttf');
-  img1 = loadImage("jul1.png"); img2 = loadImage("jul2.png"); img3 = loadImage("jul3.png"); img4 = loadImage("jul4.png")
+  img1 = loadImage("png/jul1.png"); img2 = loadImage("png/jul2.png"); img3 = loadImage("png/jul3.png"); img4 = loadImage("png/jul4.jpeg")
+  //img5 = loadImage("png/jul5.png"); img6 = loadImage("png/jul6.png"); img7 = loadImage("png/jul7.png"); img8 = loadImage("png/jul8.png")
+  //img9 = loadImage("png/jul9.png"); img10 = loadImage("png/jul10.png"); img11 = loadImage("png/jul11.png"); img12 = loadImage("png/jul12.png")
+  //img13 = loadImage("png/jul13.png"); img14 = loadImage("png/jul14.png"); img15 = loadImage("png/jul15.png"); img16 = loadImage("png/jul16.png")
+  //img17 = loadImage("png/jul17.png"); img18 = loadImage("png/jul18.png"); img19 = loadImage("png/jul19.png"); img20 = loadImage("png/jul20.png")
+  //img21 = loadImage("png/jul21.png"); img22 = loadImage("png/jul22.png"); img23 = loadImage("png/jul23.png"); img24 = loadImage("png/jul24.png")
 }
 
 
@@ -72,7 +77,7 @@ function laageSetup(x, y, laageImage, number, textPos, textColor){
   rect(0,0,size-1)
   fill(textColor)
   translate(0,0,2)
-  text(number,textPos,65)
+  text(number,textPos,75)
   fill("white")
 
   // pop() gør den rigtige translate og rotateY er sat igen. Ellers vil de næste låger blive ødelagt
@@ -92,6 +97,21 @@ function isOpenChecker(number,link){
     if(number==1){
       parent.document.getElementById(window.name).setAttribute("class","page")
       parent.document.getElementById(window.name).parentElement.children[1].setAttribute("class","page show")
+      julekalenderStop = true;
+    }
+    if(number==2){
+      parent.document.getElementById(window.name).setAttribute("class","page")
+      parent.document.getElementById(window.name).parentElement.children[2].setAttribute("class","page show")
+      julekalenderStop = true;
+    }
+    if(number==3){
+      parent.document.getElementById(window.name).setAttribute("class","page")
+      parent.document.getElementById(window.name).parentElement.children[3].setAttribute("class","page show")
+      julekalenderStop = true;
+    }
+    if(number==4){
+      parent.document.getElementById(window.name).setAttribute("class","page")
+      parent.document.getElementById(window.name).parentElement.children[4].setAttribute("class","page show")
       julekalenderStop = true;
     }
       
@@ -119,7 +139,6 @@ function setup() {
   }
   
   while(laageSpawnCount<25&&safetyCount<10000){
-    console.log("run", laageSpawnCount)
     let xRandom = Math.floor(random(size-windowWidth/2,windowWidth/2-size))
     let yRandom = Math.floor(random(size-windowHeight/2,windowHeight/2-size))
     let placeableXArr = new Array();
@@ -140,23 +159,16 @@ function setup() {
           placeableYArr.push(true)
         }
         if(placeableXArr[count] == false && placeableYArr[count] == false){
-          console.log("BOTH FAILED: XArr ",laageXArr[count]," YArr ",laageYArr[count])
           spawnable = false;
-          console.log("X ",laageXArr)
-          console.log("Y ",laageYArr)
           safetyCount++;
         }
 
         count++
-  
-        
     }
-    console.log("X RANDOM ",xRandom," Y RANDOM ",yRandom)
-    console.log(spawnable)
+
     if(spawnable == true){
       laageXArr.push(xRandom)
       laageYArr.push(yRandom)
-      console.log("New Spawned")
       laageSpawnCount++;
     }
 
@@ -171,29 +183,29 @@ function draw() {
 
   // Her laver man nye låger
   laageSetup(laageXArr[0],laageYArr[0],img1,1,32,"white")
-  laageSetup(laageXArr[1],laageYArr[1],img2,2,17,"white")
-  laageSetup(laageXArr[2],laageYArr[2],img3,3,17,"white")
-  laageSetup(laageXArr[3],laageYArr[3],img4,4,15,"white")
-  laageSetup(laageXArr[4],laageYArr[4],img4,5,25,"white")
-  laageSetup(laageXArr[5],laageYArr[5],img4,6,25,"white")
-  laageSetup(laageXArr[6],laageYArr[6],img4,7,25,"white")
-  laageSetup(laageXArr[7],laageYArr[7],img4,8,25,"white")
-  laageSetup(laageXArr[8],laageYArr[8],img4,9,25,"white")
-  laageSetup(laageXArr[9],laageYArr[9],img4,10,10,"white")
-  laageSetup(laageXArr[10],laageYArr[10],img4,11,10,"white")
-  laageSetup(laageXArr[11],laageYArr[11],img4,12,10,"white")
-  laageSetup(laageXArr[12],laageYArr[12],img4,13,10,"white")
-  laageSetup(laageXArr[13],laageYArr[13],img4,14,10,"white")
-  laageSetup(laageXArr[14],laageYArr[14],img4,15,10,"white")
-  laageSetup(laageXArr[15],laageYArr[15],img4,16,10,"white")
-  laageSetup(laageXArr[16],laageYArr[16],img4,17,10,"white")
-  laageSetup(laageXArr[17],laageYArr[17],img4,18,10,"white")
-  laageSetup(laageXArr[18],laageYArr[18],img4,19,10,"white")
-  laageSetup(laageXArr[19],laageYArr[19],img4,20,10,"white")
-  laageSetup(laageXArr[20],laageYArr[20],img4,21,10,"white")
-  laageSetup(laageXArr[21],laageYArr[21],img4,22,10,"white")
-  laageSetup(laageXArr[22],laageYArr[22],img4,23,10,"white")
-  laageSetup(laageXArr[23],laageYArr[23],img4,24,10,"white")
+  laageSetup(laageXArr[1],laageYArr[1],img2,2,27,"white")
+  laageSetup(laageXArr[2],laageYArr[2],img3,3,27,"white")
+  laageSetup(laageXArr[3],laageYArr[3],img4,4,25,"white")
+  //laageSetup(laageXArr[4],laageYArr[4],img4,5,25,"white")
+  //laageSetup(laageXArr[5],laageYArr[5],img4,6,25,"white")
+  //laageSetup(laageXArr[6],laageYArr[6],img4,7,25,"white")
+  //laageSetup(laageXArr[7],laageYArr[7],img4,8,25,"white")
+  //laageSetup(laageXArr[8],laageYArr[8],img4,9,25,"white")
+  //laageSetup(laageXArr[9],laageYArr[9],img4,10,10,"white")
+  //laageSetup(laageXArr[10],laageYArr[10],img4,11,10,"white")
+  //laageSetup(laageXArr[11],laageYArr[11],img4,12,10,"white")
+  //laageSetup(laageXArr[12],laageYArr[12],img4,13,10,"white")
+  //laageSetup(laageXArr[13],laageYArr[13],img4,14,10,"white")
+  //laageSetup(laageXArr[14],laageYArr[14],img4,15,10,"white")
+  //laageSetup(laageXArr[15],laageYArr[15],img4,16,10,"white")
+  //laageSetup(laageXArr[16],laageYArr[16],img4,17,10,"white")
+  //laageSetup(laageXArr[17],laageYArr[17],img4,18,10,"white")
+  //laageSetup(laageXArr[18],laageYArr[18],img4,19,10,"white")
+  //laageSetup(laageXArr[19],laageYArr[19],img4,20,10,"white")
+  //laageSetup(laageXArr[20],laageYArr[20],img4,21,10,"white")
+  //laageSetup(laageXArr[21],laageYArr[21],img4,22,10,"white")
+  //laageSetup(laageXArr[22],laageYArr[22],img4,23,10,"white")
+  //laageSetup(laageXArr[23],laageYArr[23],img4,24,10,"white")
 
   // Når der kommer flere låger kan man bare lave en ny af dem her med det rigtige tal.
   isOpenChecker(1)
