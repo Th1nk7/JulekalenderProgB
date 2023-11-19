@@ -2,7 +2,8 @@
 function preload(){
   font = loadFont('comicsans.ttf')
 }
-
+let grader = 0;
+let rotationStarted = false;
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   textSize(100);
@@ -13,20 +14,24 @@ function setup() {
 
 function draw() {
   background(220)
-  kalenderDoor(-30,-0,1)
-  kalenderDoor(-200,-0,1)
-  
+  kalenderDoor(-130,-220,1)
+  console.log(mouseX)
 }
 
 function kalenderDoor(x,y,number){
-  fill('blue')
-  rect(windowWidth-1500,windowHeight-1000,100)
-  let grader = 0;
-  let rotationStarted = false;
+  //fill('blue')
+  //rect(x,y,100)
+  push()
+
   fill("red")
-  rect(x,y,100)
+  rect(x-100/2,y-100/2,100)
   fill("white")
-  translate(x,y,0)
+  translate(x-100/2,y-100/2,0)
+
+  if (mouseX > x-100/2+windowWidth/2 && mouseX < x+100/2+windowWidth/2 && mouseY > y-100/2+windowHeight/2 && mouseY < y+100/2+windowHeight/2 && mouseIsPressed == true){
+    rotationStarted =  true;
+    console.log("cldasda")
+  }
   if(grader < -160){
     rotateY(grader)
   }
@@ -34,16 +39,15 @@ function kalenderDoor(x,y,number){
     rotateY(grader)
     grader --;
   }
-  if(mouseX > x - 50 && mouseX < x + 50 && mouseY > y - 50 && mouseY < y + 50 && mouseIsPressed == true){
-    rotationStarted =  true;
-  }
-
   rect(0, 0, 100);
   fill("black")
+  translate(0,0,1)
   text(number,25,90,2)
   console.log(rotationStarted + "    " + grader)
+  pop()
 }
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
+  
 }
