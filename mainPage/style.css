@@ -1,0 +1,34 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  }
+  
+  
+    body{
+      display:grid;
+      grid-auto-flow:column;
+      height: 100vh;
+      width: 100vw;
+      overflow:hidden;
+    }
+  
+    .page{
+      display:grid;
+      place-items:center;
+      width:100vw;
+      height:100vh;
+      position: fixed;
+      left:-100vw;
+      transition: all .5s .5s ease-in-out;
+    }
+  
+    .show{
+      left:0;
+      transition: all .5s ease-in-out;
+    }
+  
+  /* 
+  Alt CSS her er kopieret fra tidligere projekt da det simpelthen bare virker
+  Det er også det hele kalenderen er bygget på
+  */
