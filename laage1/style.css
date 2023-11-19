@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: rgb(22, 22, 22);
+  overflow:hidden;
+}
+
+canvas {
+  display: block;
+}
+
+/* Farve på teksten */
+#klikMig {
+  font-size: xx-large;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* Dette skjuler teksten og gør den ikke fylder 
+Alternativ så ville det skubbe videoen */
+.notShown {
+  position: absolute;
+  visibility: hidden;
+}
