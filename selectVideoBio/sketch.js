@@ -19,6 +19,7 @@ function preload(){
   snow1 = loadImage('pictures/snow1.png')
   snow2 = loadImage('pictures/snow2.png')
   snow3 = loadImage('pictures/snow3.png')
+  shrek = createVideo('')
 }
 
 function setup() {
@@ -103,6 +104,8 @@ function playBeeMovie(){
 function playShrek(){
   fill('red')
   moviestart = true
+
+
 }
 
 function windowResized(){
