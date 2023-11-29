@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+#bg{  
+  background-image: "picture/biograf.png";
+  background-size:23%;
+  position:absolute;
+}
