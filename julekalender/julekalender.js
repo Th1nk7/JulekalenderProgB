@@ -3,7 +3,6 @@ let isOpenArr = new Array();
 let isOpenPermArr = new Array();
 let degreesArr = new Array();
 let rotationStartedArr = new Array();
-let img1, img2, img3, img4;
 let julekalenderStop = false;
 let laageXArr = new Array();
 let laageYArr = new Array();
@@ -14,8 +13,8 @@ let safetyCount = 0;
 function preload(){
   font = loadFont('comicsans.ttf');
   img1 = loadImage("png/jul1.png"); img2 = loadImage("png/jul2.png"); img3 = loadImage("png/jul3.png"); img4 = loadImage("png/jul4.jpeg")
-  //img5 = loadImage("png/jul5.png"); img6 = loadImage("png/jul6.png"); img7 = loadImage("png/jul7.png"); img8 = loadImage("png/jul8.png")
-  //img9 = loadImage("png/jul9.png"); img10 = loadImage("png/jul10.png"); img11 = loadImage("png/jul11.png"); img12 = loadImage("png/jul12.png")
+  img5 = loadImage("png/jul5.png"); img6 = loadImage("png/jul6.jpg"); img7 = loadImage("png/jul7.jpg"); img8 = loadImage("png/jul8.jpg")
+  img9 = loadImage("png/jul9.jpg"); img10 = loadImage("png/jul10.png"); //img11 = loadImage("png/jul11.png"); img12 = loadImage("png/jul12.png")
   //img13 = loadImage("png/jul13.png"); img14 = loadImage("png/jul14.png"); img15 = loadImage("png/jul15.png"); img16 = loadImage("png/jul16.png")
   //img17 = loadImage("png/jul17.png"); img18 = loadImage("png/jul18.png"); img19 = loadImage("png/jul19.png"); img20 = loadImage("png/jul20.png")
   //img21 = loadImage("png/jul21.png"); img22 = loadImage("png/jul22.png"); img23 = loadImage("png/jul23.png"); img24 = loadImage("png/jul24.png")
@@ -76,7 +75,7 @@ function laageSetup(x, y, laageImage, number, textPos, textColor){
   fill("white")
   rect(0,0,size-1)
   fill(textColor)
-  translate(0,0,2)
+  translate(0,0,3)
   text(number,textPos,75)
   fill("white")
 
@@ -169,13 +168,13 @@ function draw() {
   laageSetup(laageXArr[1],laageYArr[1],img2,2,27,"white")
   laageSetup(laageXArr[2],laageYArr[2],img3,3,27,"white")
   laageSetup(laageXArr[3],laageYArr[3],img4,4,25,"white")
-  /*laageSetup(laageXArr[4],laageYArr[4],img4,5,25,"white")
-  laageSetup(laageXArr[5],laageYArr[5],img4,6,25,"white")
-  laageSetup(laageXArr[6],laageYArr[6],img4,7,25,"white")
-  laageSetup(laageXArr[7],laageYArr[7],img4,8,25,"white")
-  laageSetup(laageXArr[8],laageYArr[8],img4,9,25,"white")
-  laageSetup(laageXArr[9],laageYArr[9],img4,10,10,"white")
-  laageSetup(laageXArr[10],laageYArr[10],img4,11,10,"white")
+  laageSetup(laageXArr[4],laageYArr[4],img5,5,25,"white")
+  laageSetup(laageXArr[5],laageYArr[5],img6,6,25,"white")
+  laageSetup(laageXArr[6],laageYArr[6],img7,7,25,"white")
+  laageSetup(laageXArr[7],laageYArr[7],img8,8,25,"white")
+  laageSetup(laageXArr[8],laageYArr[8],img9,9,25,"white")
+  laageSetup(laageXArr[9],laageYArr[9],img10,10,10,"white")
+  /*laageSetup(laageXArr[10],laageYArr[10],img4,11,10,"white")
   laageSetup(laageXArr[11],laageYArr[11],img4,12,10,"white")
   laageSetup(laageXArr[12],laageYArr[12],img4,13,10,"white")
   laageSetup(laageXArr[13],laageYArr[13],img4,14,10,"white")
@@ -196,6 +195,12 @@ function draw() {
   isOpenChecker(2)
   isOpenChecker(3)
   isOpenChecker(4)
+  isOpenChecker(5)
+  isOpenChecker(6)
+  isOpenChecker(7)
+  isOpenChecker(8)
+  isOpenChecker(9)
+  isOpenChecker(10)
   }
 
 }
