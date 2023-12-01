@@ -4,7 +4,7 @@ let playerY
 let whatMovieVar = true
 let col
 let col2
-let quantity = 300;
+let quantity = 1000;
 let xPosition = [];
 let yPosition = [];
 let flakeSize = [];
@@ -19,19 +19,17 @@ function preload(){
   snow1 = loadImage('pictures/snow1.png')
   snow2 = loadImage('pictures/snow2.png')
   snow3 = loadImage('pictures/snow3.png')
-  shrek = createVideo('')
 }
 
 function setup() {
+  createCanvas(windowWidth-0.1, windowHeight-1);
   col = color(200,180,0)
   col2 = color(160,200,150)
   textFont(font);
   frameRate(30);
   noStroke();
   //sets the player start position
-  playerX = windowWidth/2
-  playerY = windowHeight/2
-
+  playerX = windowWidth/2-200
   //creates the "chose movie" buttons
   button = createButton('bee movie');
   button.size(300,100)
@@ -48,11 +46,10 @@ function setup() {
   button2.position(windowWidth/2+100,windowHeight/2+50);
   button2.mousePressed(playShrek);
   button2.hide()
-
-  createCanvas(windowWidth-0.1, windowHeight-1); 
+ 
 
   //this part of the code gives the different arrays there values
-  for(var i = 0; i < quantity; i++) {
+  for(let i = 0; i < quantity; i++) {
     flakeSize[i] = round(random(minFlakeSize, maxFlakeSize));
     xPosition[i] = random(0, width);
     yPosition[i] = random(0, height);
@@ -81,9 +78,13 @@ ellipse(playerX,windowHeight-150,20)
   }
   
 
-  if(playerX <windowWidth/2-20){
+  if(playerX >windowWidth/2 && playerX < windowWidth/2+85 && !moviestart){
     button.show()
     button2.show()
+  }
+  else{
+    button.hide()
+    button2.hide()
   }
 }
 
@@ -99,11 +100,16 @@ function whatMovie(){
 function playBeeMovie(){
   fill('red')
   moviestart = true
+  button.hide()
+  button2.hide()
+
 }
 
 function playShrek(){
   fill('red')
   moviestart = true
+  button.hide()
+  button2.hide()
 
 
 }
@@ -114,7 +120,7 @@ function windowResized(){
 
 
 function drawSnow() {
-	for(var i = 0; i < xPosition.length; i++) {
+	for(let i = 0; i < xPosition.length; i++) {
     
     image(snow1,xPosition[i], yPosition[i], flakeSize[i], flakeSize[i]);
 
@@ -127,7 +133,7 @@ function drawSnow() {
     yPosition[i] += flakeSize[i] + direction[i]; 
     
     //this just cheks if the flake is of the screen and if it is it will be snedt back to the top   
-    if(xPosition[i] > width + flakeSize[i] || xPosition[i] < -flakeSize[i] || yPosition[i] > height + flakeSize[i]) {
+    if(xPosition[i] > windowWidth/2 + 370 - flakeSize[i] || xPosition[i] < windowWidth/2-370-flakeSize[i] || yPosition[i] > height + flakeSize[i]) {
       xPosition[i] = random(0, width);
       yPosition[i] = -flakeSize[i];
     } 
