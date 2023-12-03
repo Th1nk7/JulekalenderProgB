@@ -111,13 +111,6 @@ function forhendring(){
   Math.floor(posX);
   size = random(50,100); 
   }
-  //here we create the scaling levels
-  time ++
-  if(time >= 25){
-    speed += 0.1;
-    time = 0
-    level ++
-  }
   posY += speed;
   //here the obstacles are createt
   if(size >= 75){
