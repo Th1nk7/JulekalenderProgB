@@ -1,7 +1,7 @@
 let speed = 6
 let moviestart = false
 let playerY 
-let whatMovieVar = true
+
 let col
 let col2
 let quantity = 1000;
@@ -19,16 +19,23 @@ function preload(){
   snow1 = loadImage('pictures/snow1.png')
   snow2 = loadImage('pictures/snow2.png')
   snow3 = loadImage('pictures/snow3.png')
+  
 }
 
 function setup() {
+  //creates canvas and places it on the middle of the screan
   let canvas = createCanvas(windowHeight, windowHeight-1);
-  canvas.position(windowWidth/2-windowWidth/2/2,0)
-  col = color(200,180,0)
-  col2 = color(160,200,150)
+  canvas.position(windowWidth/2-windowWidth/2/2,0);
+  //sets coulors and the font for the two buttons
+  col = color(200,180,0);
+  col2 = color(160,200,150);
   textFont(font);
   frameRate(30);
   noStroke();
+  //creates the videos
+  let shrek = createVideo('https://drive.google.com/file/d/1Pmd5an5LWoKYTb4vF2qDRKnevzHA9V7I/preview');
+  shrek.hide();
+
   //sets the player start position
   playerX = width/2-200
   //creates the "chose movie" buttons
@@ -49,6 +56,7 @@ function setup() {
   button2.hide()
  
 
+
   //this part of the code gives the different arrays there values
   for(let i = 0; i < quantity; i++) {
     flakeSize[i] = round(random(minFlakeSize, maxFlakeSize));
@@ -59,18 +67,19 @@ function setup() {
 }
 
 function draw() {
+  //creates the background
   background(5);
-
   image(bg,0,0,windowHeight,windowHeight)
+  //creates the 2 moives
+
+  //stops the snow if the movie is started
   if(moviestart == false){
   drawSnow()
   }
-//test area
-whatMovie()
 
   //player elipse
 ellipse(playerX,windowHeight-150,20)
-  //movement for the caretor
+  //movement for the player
   if(keyIsDown(68)){
     playerX += speed
   }
@@ -78,7 +87,7 @@ ellipse(playerX,windowHeight-150,20)
     playerX -= speed
   }
   
-
+  //makes the buttons apear if the player is atr the door
   if(playerX >width/2-10 && playerX < width/2+115 && !moviestart){
     button.show()
     button2.show()
@@ -89,15 +98,7 @@ ellipse(playerX,windowHeight-150,20)
   }
 }
 
-
-function whatMovie(){
-
-  if(whatMovieVar){
-
-  
-  }
-}
-
+//here the functions are created for the movies to start
 function playBeeMovie(){
   fill('red')
   moviestart = true
@@ -111,6 +112,7 @@ function playShrek(){
   moviestart = true
   button.hide()
   button2.hide()
+  shrek.show()
 
 
 }
@@ -120,7 +122,7 @@ function windowResized(){
   
 }
 
-
+//here the function for the snow is created
 function drawSnow() {
 	for(let i = 0; i < xPosition.length; i++) {
     
