@@ -22,14 +22,15 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth-0.1, windowHeight-1);
+  let canvas = createCanvas(windowHeight, windowHeight-1);
+  canvas.position(windowWidth/2-windowWidth/2/2,0)
   col = color(200,180,0)
   col2 = color(160,200,150)
   textFont(font);
   frameRate(30);
   noStroke();
   //sets the player start position
-  playerX = windowWidth/2-200
+  playerX = width/2-200
   //creates the "chose movie" buttons
   button = createButton('bee movie');
   button.size(300,100)
@@ -60,7 +61,7 @@ function setup() {
 function draw() {
   background(5);
 
-  image(bg,windowWidth/2-windowHeight/2,0,windowHeight,windowHeight)
+  image(bg,0,0,windowHeight,windowHeight)
   if(moviestart == false){
   drawSnow()
   }
@@ -78,7 +79,7 @@ ellipse(playerX,windowHeight-150,20)
   }
   
 
-  if(playerX >windowWidth/2 && playerX < windowWidth/2+85 && !moviestart){
+  if(playerX >width/2-10 && playerX < width/2+115 && !moviestart){
     button.show()
     button2.show()
   }
@@ -133,7 +134,7 @@ function drawSnow() {
     yPosition[i] += flakeSize[i] + direction[i]; 
     
     //this just cheks if the flake is of the screen and if it is it will be snedt back to the top   
-    if(xPosition[i] > windowWidth/2 + 370 - flakeSize[i] || xPosition[i] < windowWidth/2-370-flakeSize[i] || yPosition[i] > height + flakeSize[i]) {
+    if(xPosition[i] > width- flakeSize[i] || xPosition[i] < -width -flakeSize[i] || yPosition[i] > height + flakeSize[i]) {
       xPosition[i] = random(0, width);
       yPosition[i] = -flakeSize[i];
     } 
