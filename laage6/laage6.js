@@ -1,7 +1,6 @@
 let speed = 6
 let moviestart = false
 let playerY 
-
 let col
 let col2
 let quantity = 1000;
@@ -11,6 +10,7 @@ let flakeSize = [];
 let direction = [];
 let minFlakeSize = 5;
 let maxFlakeSize = 10;
+
 
 
 function preload(){
@@ -25,7 +25,7 @@ function preload(){
 function setup() {
   //creates canvas and places it on the middle of the screan
   let canvas = createCanvas(windowHeight, windowHeight-1);
-  canvas.position(windowWidth/2-windowWidth/2/2,0);
+  canvas.position(windowWidth/2-windowHeight/2,0);
   //sets coulors and the font for the two buttons
   col = color(200,180,0);
   col2 = color(160,200,150);
@@ -33,8 +33,7 @@ function setup() {
   frameRate(30);
   noStroke();
   //creates the videos
-  let shrek = createVideo('https://drive.google.com/file/d/1Pmd5an5LWoKYTb4vF2qDRKnevzHA9V7I/preview');
-  shrek.hide();
+
 
   //sets the player start position
   playerX = width/2-200
@@ -68,10 +67,8 @@ function setup() {
 
 function draw() {
   //creates the background
-  background(5);
   image(bg,0,0,windowHeight,windowHeight)
-  //creates the 2 moives
-
+  
   //stops the snow if the movie is started
   if(moviestart == false){
   drawSnow()
@@ -100,26 +97,23 @@ ellipse(playerX,windowHeight-150,20)
 
 //here the functions are created for the movies to start
 function playBeeMovie(){
-  fill('red')
   moviestart = true
   button.hide()
   button2.hide()
-
+  document.getElementById("beeMovie").setAttribute("class","show")
+  resizeCanvas(0,0)
 }
 
 function playShrek(){
-  fill('red')
   moviestart = true
   button.hide()
   button2.hide()
-  shrek.show()
-
-
+  document.getElementById("shrekMovie").setAttribute("class","show")
+  resizeCanvas(0,0)
 }
 
 function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
-  
+  window.location.reload()
 }
 
 //here the function for the snow is created

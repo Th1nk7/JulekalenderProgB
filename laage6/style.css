@@ -1,8 +1,35 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: black;
+  overflow:hidden;
+  z-index: 0;
 }
 
-canvas {
-  display: block;
+#beeMovie {
+  width:101vw;
+  height:101vh;
+  position:absolute;
+  left:-102vw;
+  z-index: 2;
+}
+
+#beeMovie.show {
+  z-index: 2;
+  left:-1vw;
+  top:-1vh;
+}
+
+#shrekMovie {
+  width:101vw;
+  height:101vh;
+  position:absolute;
+  left:-102vw;
+  z-index: 2;
+}
+
+#shrekMovie.show {
+  z-index: 2;
+  left:-1vw;
+  top:-1vh;
 }
