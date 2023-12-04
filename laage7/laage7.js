@@ -30,6 +30,8 @@ function draw() {
   if(detections.length > 0) {
     let points = detections[0].landmarks.positions;
     for(let i=0; i < points.length; i++){
+      stroke(161,95,251)
+      strokeWeight(4)
       point(points[i]._x,points[i]._y)
     }
   }
