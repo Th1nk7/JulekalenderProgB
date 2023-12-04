@@ -7,10 +7,11 @@ let julemandenSize;
 let julemandenVar 
 let posX = 0
 let posY = 0
-let speed = 10
+let speed = 7
 let size = 100
 let what = 0
 let time = 0
+let score = 0
 
 function preload() {
   julemanden = loadImage("julemanden.webp")
@@ -40,13 +41,13 @@ function setup() {
 function draw() {
 
   if(keyIsDown(65) && julemandenX >0 + julemandenSize/2){
-    julemandenX -= 17
+    julemandenX -= 20
     julemandenRotation = 0;
     julemandenVar = julemandenLeft
   }
 
   if(keyIsDown(68) && julemandenX <windowWidth - julemandenSize/2){
-    julemandenX += 17
+    julemandenX += 20
     julemandenRotation = 1
     julemandenVar = julemanden
   }
@@ -55,9 +56,17 @@ function draw() {
   if(mouseIsPressed && start == false && parent.document.getElementById(window.name).classList == "page show"){
     start = true
   }
-  if(julemandenX + julemandenSize/2>= posX && julemandenX - julemandenSize/2<= posX + size/2 && posY >= julemandenY - julemandenSize/2.5 && posY <= julemandenY + julemandenSize/2.5 && what >= 8){
+    if(posY >= windowHeight-20 && what <= 8){
     isDead = true
   }
+  if(julemandenX + julemandenSize/2>= posX && julemandenX - julemandenSize/2<= posX + size/2 && posY >= julemandenY +julemandenSize/6  && posY <= julemandenY + julemandenSize/2.5 && what >= 8){
+    isDead = true
+  }
+  else if(julemandenX + julemandenSize/2>= posX && julemandenX - julemandenSize/2<= posX + size/2 && posY >= julemandenY +julemandenSize/6  && posY <= julemandenY + julemandenSize/2.5 && what <= 8){
+    score ++
+    posY = 0
+  }
+
   if(start && isDead == true){
     fill("black")
     textSize(txtSize)
@@ -76,6 +85,11 @@ function draw() {
   if(start && isDead == false){
     image(julemandenVar,julemandenX-julemandenSize/2,julemandenY,julemandenSize,julemandenSize)
     forhendring()
+    text("score: " + score, windowWidth/2, windowHeight/7)
+  }
+
+  if(isDead && mouseIsPressed){
+    restart()
   }
 }
 
@@ -97,7 +111,7 @@ function windowResized(){
 function forhendring(){
   //here we chek if the Y posision of the obstacle is 0 and if it is, it shall make it
   if(posY == 0){
-  posX = random(0+size/2,windowWidth-size/2);
+  posX = random(windowWidth/2-julemandenSize*2,windowWidth/2+julemandenSize*2);
   Math.floor(posX);
   what = random(0,10)
   }
@@ -125,6 +139,17 @@ function forhendring(){
     posY = 0
   }
 
+}
+function restart(){
+ start = false;
+ isDead = false;
+ posX = 0
+ posY = 0
+ speed = 7
+ size = 100
+ what = 0
+ time = 0
+ score = 0
 }
 
 /* 
