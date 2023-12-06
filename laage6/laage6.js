@@ -1,3 +1,4 @@
+/*
 let speed = 6
 let moviestart = false
 let playerY 
@@ -141,3 +142,4 @@ function drawSnow() {
     } 
   }
 }
+*/
