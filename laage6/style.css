@@ -6,6 +6,7 @@ html, body {
   z-index: 0;
 }
 
+/* De bliver givet show class når de skal vises. Det gør de kommer ind foran. */
 #beeMovie {
   width:101vw;
   height:101vh;

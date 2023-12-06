@@ -10,9 +10,10 @@ let flakeSize = [];
 let direction = [];
 let minFlakeSize = 5;
 let maxFlakeSize = 10;
+let movieTime = false;
 
 
-
+// Preloader alt
 function preload(){
   font = loadFont('comicsans.ttf');
   bg = loadImage('pictures/biograf.png')
@@ -26,14 +27,12 @@ function setup() {
   //creates canvas and places it on the middle of the screan
   let canvas = createCanvas(windowHeight, windowHeight-1);
   canvas.position(windowWidth/2-windowHeight/2,0);
-  //sets coulors and the font for the two buttons
+  //sets colors and the font for the two buttons
   col = color(200,180,0);
   col2 = color(160,200,150);
   textFont(font);
   frameRate(30);
   noStroke();
-  //creates the videos
-
 
   //sets the player start position
   playerX = width/2-200
@@ -66,6 +65,10 @@ function setup() {
 }
 
 function draw() {
+  if(!movieTime && parent.document.getElementById(window.name).classList == "page show"){
+    movieTime = true
+  }
+  if(movieTime){
   //creates the background
   image(bg,0,0,windowHeight,windowHeight)
   
@@ -75,7 +78,7 @@ function draw() {
   }
 
   //player elipse
-ellipse(playerX,windowHeight-150,20)
+  ellipse(playerX,windowHeight-150,20)
   //movement for the player
   if(keyIsDown(68)){
     playerX += speed
@@ -90,8 +93,9 @@ ellipse(playerX,windowHeight-150,20)
     button2.show()
   }
   else{
-    button.hide()
-    button2.hide()
+      button.hide()
+      button2.hide()
+    }
   }
 }
 
